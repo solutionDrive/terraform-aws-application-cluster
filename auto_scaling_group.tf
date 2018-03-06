@@ -6,7 +6,7 @@ resource "aws_launch_configuration" "application_cluster_appserver_launch_config
   # Instance Role has to be defined outsite of this role
   iam_instance_profile = "${var.application_cluster_instance_role_id}"
   lifecycle {
-    create_before_destroy = "${var.application_cluster_create_before_destroy == 1 ? true : false}"
+    create_before_destroy = true
   }
 }
 
