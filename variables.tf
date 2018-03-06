@@ -1,8 +1,3 @@
-
-variable "application_cluster_create_before_destroy" {
-  description = "Bool value whether the autoscaling group should be created before destruction of the replaced resource"
-}
-
 #Loadbalancer
 variable "application_cluster_elb_security_groups" {
   description = "security-groups which should be assigned to the elb"
