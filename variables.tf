@@ -1,14 +1,14 @@
 #Loadbalancer
-variable "application_cluster_elb_security_groups" {
-  description = "security-groups which should be assigned to the elb"
+variable "application_cluster_lb_security_groups" {
+  description = "security-groups which should be assigned to the lb"
   type = "list"
 }
 
-variable "application_cluster_elb_access_log_bucket" {
-  description = "the bucket name to save the elb-access-logs to. The application-data-bucket of all accounts is configured for log-file-access"
+variable "application_cluster_lb_access_log_bucket" {
+  description = "the bucket name to save the lb-access-logs to. The application-data-bucket of all accounts is configured for log-file-access"
 }
 
-variable "application_cluster_elb_access_log_folder" {
+variable "application_cluster_lb_access_log_folder" {
   description = "the folder where the logs should be saved. The application-data-bucket of all accounts is configured with the default path"
   default = "logs/access"
 }
@@ -90,5 +90,5 @@ variable "application_cluster_user_data" {
 
 variable "application_cluster_ssl_policy" {
   description = "Policy for SSL"
-  default = "ELBSecurityPolicy-TLS-1-2-2017-01"
+  default = "lbSecurityPolicy-TLS-1-2-2017-01"
 }

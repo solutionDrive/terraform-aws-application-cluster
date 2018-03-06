@@ -1,11 +1,11 @@
 resource "aws_lb" "application_cluster_loadbalancer" {
   access_logs {
-    bucket = "${var.application_cluster_elb_access_log_bucket}"
-    prefix = "${var.application_cluster_elb_access_log_folder}/${var.application_cluster_environment}"
+    bucket = "${var.application_cluster_lb_access_log_bucket}"
+    prefix = "${var.application_cluster_lb_access_log_folder}/${var.application_cluster_environment}"
     enabled = "${var.application_cluster_access_log_enabled}"
   }
 
-  security_groups    = ["${var.application_cluster_elb_security_groups}"]
+  security_groups    = ["${var.application_cluster_lb_security_groups}"]
   subnets            = ["${var.application_cluster_subnet_ids}"]
   name               = "${var.application_cluster_application_name}-${var.application_cluster_environment}"
   load_balancer_type = "${var.application_cluster_loadbalancer_type}"
