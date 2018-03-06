@@ -105,7 +105,7 @@ variable "application_cluster_user_data" {
 
 variable "application_cluster_ssl_policy" {
   description = "Policy for SSL"
-  default = "lbSecurityPolicy-TLS-1-2-2017-01"
+  default = "ELBSecurityPolicy-TLS-1-2-2017-01"
 }
 ```
 
