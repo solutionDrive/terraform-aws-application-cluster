@@ -4,7 +4,7 @@ resource "aws_launch_configuration" "application_cluster_appserver_launch_config
   security_groups = ["${var.application_cluster_security_groups}"]
   user_data = "${var.application_cluster_user_data}"
   # Instance Role has to be defined outsite of this role
-  iam_instance_profile = "${var.application_cluster_instance_role_id}"
+  iam_instance_profile = "${aws_iam_instance_profile.appserver_instance_profile.id}"
   lifecycle {
     create_before_destroy = true
   }
