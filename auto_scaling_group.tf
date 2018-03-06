@@ -1,7 +1,7 @@
 resource "aws_launch_configuration" "application_cluster_appserver_launch_configuration" {
   image_id = "${var.application_cluster_ami_id}"
   instance_type = "${var.application_cluster_instance_type}"
-  security_groups = ["${var.application_cluster_security_groups}"]
+  security_groups = ["${var.application_cluster_launch_configuration_security_groups}"]
   user_data = "${var.application_cluster_user_data}"
   # Instance Role has to be defined outsite of this role
   iam_instance_profile = "${aws_iam_instance_profile.appserver_instance_profile.id}"

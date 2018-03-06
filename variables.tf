@@ -69,7 +69,7 @@ variable "application_cluster_propagate_at_launch" {
   default = true
 }
 
-variable "application_cluster_security_groups" {
+variable "application_cluster_launch_configuration_security_groups" {
   description = "Security-Groups to append to the instances"
   type = "list"
 }
