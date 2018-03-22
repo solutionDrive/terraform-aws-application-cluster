@@ -107,12 +107,13 @@ variable "application_cluster_ssl_policy" {
   description = "Policy for SSL"
   default = "ELBSecurityPolicy-TLS-1-2-2017-01"
 }
-
-variable "application_cluster_launch_configuration_detailed_monitoring" {
-  description = "Enable/disable detailed monitoring"
-  default = false
-}
 ```
+
+    variable "application_cluster_launch_configuration_detailed_monitoring" {
+      description = "Enable/disable detailed monitoring"
+      default = false
+    }
+You can find information about detailed_monitoring in the [AWS Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html)
 
 ### Using the Module
 ```hcl-terraform
