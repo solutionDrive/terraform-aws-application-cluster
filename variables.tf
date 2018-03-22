@@ -92,3 +92,8 @@ variable "application_cluster_ssl_policy" {
   description = "Policy for SSL"
   default = "ELBSecurityPolicy-TLS-1-2-2017-01"
 }
+
+variable "application_cluster_launch_configuration_detailed_monitoring" {
+  description = "Enable/disable detailed monitoring"
+  default = false
+}
