@@ -42,7 +42,7 @@ resource "aws_lb_listener" "loadbalancer_listener_ssl" {
 }
 
 resource "aws_lb_target_group" "loadbalancer_default_target_group" {
-  name     = "DEFAULT-${substr(var.application_cluster_application_name, 0, 16)}-${substr(var.application_cluster_environment, 0, 4)}-tg"
+  name     = "DEFAULT-${substr(var.application_cluster_application_name, 0, min(16,length(var.application_cluster_application_name)))}-${substr(var.application_cluster_environment, 0, min(4, length(var.application_cluster_environment)))}-tg"
   port     = "${var.application_cluster_instance_port_http}"
   protocol = "HTTP"
   vpc_id   = "${var.application_cluster_vpc_id}"
