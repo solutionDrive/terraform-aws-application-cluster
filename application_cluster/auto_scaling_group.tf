@@ -39,7 +39,7 @@ resource "aws_lb_listener_rule" "application_cluster_listener_rule" {
   }
 }
 
-resource "aws_lb_listener_rule" "application_cluster_listener_rule" {
+resource "aws_lb_listener_rule" "application_cluster_listener_ssl_rule" {
   listener_arn = "${var.loadbalancer_listener_ssl_arn}"
   priority = ""
 
