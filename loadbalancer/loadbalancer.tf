@@ -17,18 +17,6 @@ resource "aws_lb" "application_cluster_loadbalancer" {
   }
 }
 
-resource "aws_lb_target_group" "application_cluster_target_group" {
-  name     = "${var.application_cluster_application_name}-${var.application_cluster_environment}-target-group"
-  port     = "${var.application_cluster_instance_port_http}"
-  protocol = "HTTP"
-  vpc_id   = "${var.application_cluster_vpc_id}"
-}
-
-resource "aws_autoscaling_attachment" "application_cluster_autoscaling_attachment" {
-  autoscaling_group_name = "${aws_autoscaling_group.application_cluster_appserver_auto_scaling_group.id}"
-  alb_target_group_arn = "${aws_lb_target_group.application_cluster_target_group.arn}"
-}
-
 resource "aws_lb_listener" "application_cluster_listener" {
   load_balancer_arn = "${aws_lb.application_cluster_loadbalancer.arn}"
   port              = "80"
@@ -51,4 +39,11 @@ resource "aws_lb_listener" "application_cluster_listener_ssl" {
     target_group_arn = "${aws_lb_target_group.application_cluster_target_group.arn}"
     type             = "forward"
   }
+}
+
+resource "aws_lb_target_group" "application_cluster_target_group" {
+  name     = "${var.application_cluster_application_name}-${var.application_cluster_environment}-default-target-group"
+  port     = "${var.application_cluster_instance_port_http}"
+  protocol = "HTTP"
+  vpc_id   = "${var.application_cluster_vpc_id}"
 }
