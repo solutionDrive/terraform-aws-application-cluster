@@ -42,7 +42,7 @@ resource "aws_lb_listener" "application_cluster_listener_ssl" {
 }
 
 resource "aws_lb_target_group" "application_cluster_target_group" {
-  name     = "${var.application_cluster_application_name}-${var.application_cluster_environment}-default-target-group"
+  name     = "DEFAULT-${var.application_cluster_application_name}-${var.application_cluster_environment}-target-group"
   port     = "${var.application_cluster_instance_port_http}"
   protocol = "HTTP"
   vpc_id   = "${var.application_cluster_vpc_id}"
