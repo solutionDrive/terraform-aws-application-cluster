@@ -26,7 +26,6 @@ resource "aws_autoscaling_group" "application_cluster_appserver_auto_scaling_gro
 
 resource "aws_lb_listener_rule" "application_cluster_listener_rule" {
   listener_arn = "${var.loadbalancer_listener_arn}"
-  priority = ""
 
   action {
     target_group_arn = "${aws_lb_target_group.application_cluster_target_group.arn}"
@@ -41,7 +40,6 @@ resource "aws_lb_listener_rule" "application_cluster_listener_rule" {
 
 resource "aws_lb_listener_rule" "application_cluster_listener_ssl_rule" {
   listener_arn = "${var.loadbalancer_listener_ssl_arn}"
-  priority = ""
 
   action {
     target_group_arn = "${aws_lb_target_group.application_cluster_target_group.arn}"
