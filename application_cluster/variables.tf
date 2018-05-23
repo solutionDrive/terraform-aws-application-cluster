@@ -81,3 +81,8 @@ variable "application_cluster_listener_rule_condition_values" {
   description = "values which should be used on condition"
   type = "list"
 }
+
+variable application_cluster_target_group_protocol {
+  type = "string"
+  default = "HTTP"
+}
