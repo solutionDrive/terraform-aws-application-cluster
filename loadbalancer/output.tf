@@ -15,29 +15,29 @@ output "loadbalancer_zone_id" {
 }
 
 output "loadbalancer_listener_id" {
-  value = "${aws_lb_listener.loadbalancer_listener.id}"
+  value = "${aws_lb_listener.loadbalancer_listener.0.id}"
 }
 
 output "loadbalancer_listener_arn" {
-  value = "${aws_lb_listener.loadbalancer_listener.arn}"
+  value = "${aws_lb_listener.loadbalancer_listener.0.arn}"
 }
 
 output "loadbalancer_listener_ssl_id" {
-  value = "${aws_lb_listener.loadbalancer_listener_ssl.id}"
+  value = "${aws_lb_listener.loadbalancer_listener_ssl.0.id}"
 }
 
 output "loadbalancer_listener_ssl_arn" {
-  value = "${aws_lb_listener.loadbalancer_listener_ssl.arn}"
+  value = "${aws_lb_listener.loadbalancer_listener_ssl.0.arn}"
 }
 
 output "loadbalancer_default_target_group_id" {
-  value = "${aws_lb_target_group.loadbalancer_default_target_group.id}"
+  value = "${aws_lb_target_group.loadbalancer_default_target_group.0.id}"
 }
 
 output "loadbalancer_default_target_group_arn" {
-  value = "${aws_lb_target_group.loadbalancer_default_target_group.arn}"
+  value = "${aws_lb_target_group.loadbalancer_default_target_group.0.arn}"
 }
 
 output "loadbalancer_default_target_group_vpc_id" {
-  value = "${aws_lb_target_group.loadbalancer_default_target_group.vpc_id}"
+  value = "${aws_lb_target_group.loadbalancer_default_target_group.0.vpc_id}"
 }
