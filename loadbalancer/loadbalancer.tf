@@ -18,6 +18,7 @@ resource "aws_lb" "loadbalancer" {
 }
 
 resource "aws_lb_listener" "loadbalancer_listener" {
+  count = "${var.application_cluster_loadbalancer_type == "application" ? 1 : 0}"
   load_balancer_arn = "${aws_lb.loadbalancer.arn}"
   port              = "80"
   protocol          = "HTTP"
@@ -29,6 +30,7 @@ resource "aws_lb_listener" "loadbalancer_listener" {
 }
 
 resource "aws_lb_listener" "loadbalancer_listener_ssl" {
+  count = "${var.application_cluster_loadbalancer_type == "application" ? 1 : 0}"
   load_balancer_arn = "${aws_lb.loadbalancer.arn}"
   port              = "443"
   protocol          = "HTTPS"
@@ -42,6 +44,7 @@ resource "aws_lb_listener" "loadbalancer_listener_ssl" {
 }
 
 resource "aws_lb_target_group" "loadbalancer_default_target_group" {
+  count = "${var.application_cluster_loadbalancer_type == "application" ? 1 : 0}"
   name     = "DEFAULT-${substr(var.application_cluster_application_name, 0, min(16,length(var.application_cluster_application_name)))}-${substr(var.application_cluster_environment, 0, min(4, length(var.application_cluster_environment)))}-tg"
   port     = "${var.application_cluster_instance_port_http}"
   protocol = "HTTP"
