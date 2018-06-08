@@ -65,11 +65,13 @@ variable "application_cluster_propagate_at_launch" {
 variable "loadbalancer_listener_arn" {
   description = "arn of listener from loadbalancer"
   type = "string"
+  default = ""
 }
 
 variable "loadbalancer_listener_ssl_arn" {
   description = "arn of ssl listener from loadbalancer"
   type = "string"
+  default = ""
 }
 
 variable "application_cluster_listener_rule_condition_field" {
