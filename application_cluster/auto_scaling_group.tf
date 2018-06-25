@@ -12,14 +12,14 @@ resource "aws_launch_configuration" "application_cluster_appserver_launch_config
 }
 
 resource "aws_autoscaling_group" "application_cluster_appserver_auto_scaling_group" {
-  name     = "${var.application_cluster_application_name}-${var.application_cluster_environment}-asg"
+  name     = "${substr(var.application_cluster_application_name, 0, min(14,length(var.application_cluster_application_name)))}-${substr(var.application_cluster_environment, 0, min(4, length(var.application_cluster_environment)))}-asg"
   launch_configuration = "${aws_launch_configuration.application_cluster_appserver_launch_configuration.id}"
   max_size = "${var.application_cluster_max_size}"
   min_size = "${var.application_cluster_min_size}"
   vpc_zone_identifier = ["${var.application_cluster_subnet_ids}"]
   tag {
     key = "Name"
-    value = "ASG - ${var.application_cluster_application_name} - ${var.application_cluster_environment}"
+    value = "${substr(var.application_cluster_application_name, 0, min(14,length(var.application_cluster_application_name)))} - ${substr(var.application_cluster_environment, 0, min(4, length(var.application_cluster_environment)))} - ASG"
     propagate_at_launch = "${var.application_cluster_propagate_at_launch}"
   }
 }
@@ -55,7 +55,7 @@ resource "aws_lb_listener_rule" "application_cluster_listener_ssl_rule" {
 }
 
 resource "aws_lb_target_group" "application_cluster_target_group" {
-  name     = "${var.application_cluster_application_name}-${var.application_cluster_environment}-target-group"
+  name     = "${substr(var.application_cluster_application_name, 0, min(14,length(var.application_cluster_application_name)))}-${substr(var.application_cluster_environment, 0, min(4, length(var.application_cluster_environment)))}-target-group"
   port     = "${var.application_cluster_instance_port_http}"
   protocol = "${var.application_cluster_target_group_protocol}"
   vpc_id   = "${var.application_cluster_vpc_id}"
