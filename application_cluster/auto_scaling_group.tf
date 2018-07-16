@@ -59,6 +59,17 @@ resource "aws_lb_target_group" "application_cluster_target_group" {
   port     = "${var.application_cluster_instance_port_http}"
   protocol = "${var.application_cluster_target_group_protocol}"
   vpc_id   = "${var.application_cluster_vpc_id}"
+
+  health_check {
+    interval = "${var.healthcheck_interval}"
+    path = "${var.healthcheck_path}"
+    port = "${var.healthcheck_port}"
+    protocol = "${var.healthcheck_protocol}"
+    timeout = "${var.healthcheck_timeout}"
+    healthy_threshold = "${var.healthcheck_healthy_threshold}"
+    unhealthy_threshold = "${var.healthcheck_unhealthy_threshold}"
+    matcher = "${var.healthcheck_matcher}"
+  }
 }
 
 resource "aws_autoscaling_attachment" "application_cluster_autoscaling_attachment" {

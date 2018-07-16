@@ -88,3 +88,43 @@ variable application_cluster_target_group_protocol {
   type = "string"
   default = "HTTP"
 }
+
+variable "healthcheck_interval" {
+  description = "see https://www.terraform.io/docs/providers/aws/r/lb_target_group.html#interval"
+  default = 30
+}
+
+variable "healthcheck_path" {
+  description = "see https://www.terraform.io/docs/providers/aws/r/lb_target_group.html#path"
+  default = "/"
+}
+
+variable "healthcheck_port" {
+  description = "see https://www.terraform.io/docs/providers/aws/r/lb_target_group.html#port-1"
+  default = "traffic-port"
+}
+
+variable "healthcheck_protocol" {
+  description = "see https://www.terraform.io/docs/providers/aws/r/lb_target_group.html#protocol-1"
+  default = "HTTP"
+}
+
+variable "healthcheck_timeout" {
+  description = "see https://www.terraform.io/docs/providers/aws/r/lb_target_group.html#timeout"
+  default = 5
+}
+
+variable "healthcheck_healthy_threshold" {
+  description = "see https://www.terraform.io/docs/providers/aws/r/lb_target_group.html#healthy_threshold"
+  default = 3
+}
+
+variable "healthcheck_unhealthy_threshold" {
+  description = "see https://www.terraform.io/docs/providers/aws/r/lb_target_group.html#unhealthy_threshold"
+  default = 3
+}
+
+variable "healthcheck_matcher" {
+  description = "see https://www.terraform.io/docs/providers/aws/r/lb_target_group.html#matcher"
+  default = "200"
+}
