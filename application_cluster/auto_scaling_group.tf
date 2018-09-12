@@ -1,5 +1,5 @@
 resource "aws_launch_configuration" "application_cluster_appserver_launch_configuration" {
-  name     = "${substr(var.application_cluster_application_name, 0, min(22,length(var.application_cluster_application_name)))}-${substr(var.application_cluster_environment, 0, min(4, length(var.application_cluster_environment)))}"
+  name_prefix = "${substr(var.application_cluster_application_name, 0, min(14,length(var.application_cluster_application_name)))}-${substr(var.application_cluster_environment, 0, min(4, length(var.application_cluster_environment)))}-"
   image_id = "${var.application_cluster_ami_id}"
   instance_type = "${var.application_cluster_instance_type}"
   security_groups = ["${var.application_cluster_launch_configuration_security_groups}"]
