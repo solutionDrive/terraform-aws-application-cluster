@@ -11,7 +11,7 @@ application-cluster in different code bases!
 1. LoadBalancer
 
 Resources for a LoadBalancer (default: ApplicationLoadBalancer) with
-    1 Listener for Port 80
+    1 Listener for Port 80 (the default action is to redirect to https)
     1 Listener for Port 443 (An AWS-certificate is mandatory for this at the moment)
     1 Default Target Group (needed to define a listener)
     
