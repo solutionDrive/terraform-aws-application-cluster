@@ -77,11 +77,13 @@ variable "loadbalancer_listener_ssl_arn" {
 variable "application_cluster_listener_rule_condition_field" {
   description = "field on which the condition should be triggered"
   type = "string"
+  default = ""
 }
 
 variable "application_cluster_listener_rule_condition_values" {
   description = "values which should be used on condition"
   type = "list"
+  default = []
 }
 
 variable application_cluster_target_group_protocol {
