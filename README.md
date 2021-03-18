@@ -33,7 +33,8 @@ Resources for an auto scaling group application cluster
 - `application_cluster_lb_access_log_folder`: (string) The folder where the logs should be saved.
 - `application_cluster_access_log_enabled`: (boolean|default:true) Enable/disable the logging of access.
 - `application_cluster_loadbalancer_type`: (string|default:application) Which lb type to use: application or network.
-- `application_cluster_ssl_cert_arn`: (string) The ssl-certificate for the loadbalancer.
+- `application_cluster_ssl_cert_arn`: (string) The default ssl-certificate for the loadbalancer.
+- `application_cluster_additional_certificate_arns`: (list) Additional certifactes for the loadbalancer.
 - `application_cluster_application_name`: (string) The name to identify the loadbalancer.
 - `application_cluster_environment`: (string) The environment of the loadbalancer.
 - `application_cluster_instance_port_http`: (int|default:80) The port for http communication with an instance.

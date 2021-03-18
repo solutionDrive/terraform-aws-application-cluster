@@ -55,3 +55,10 @@ resource "aws_lb_target_group" "loadbalancer_default_target_group" {
   protocol = "HTTP"
   vpc_id   = "${var.application_cluster_vpc_id}"
 }
+
+resource "aws_lb_listener_certificate" "additional_certificates"{
+  count = "${length(var.application_cluster_additional_certificate_arns)}"
+
+  certificate_arn = "${var.application_cluster_additional_certificate_arns[count.index]}"
+  listener_arn = "${aws_lb_listener.loadbalancer_listener_ssl.arn}"
+}
