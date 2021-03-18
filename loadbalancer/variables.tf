@@ -54,3 +54,9 @@ variable "application_cluster_ssl_policy" {
   description = "Policy for SSL"
   default = "ELBSecurityPolicy-TLS-1-2-2017-01"
 }
+
+variable "application_cluster_additional_certificate_arns" {
+  description = "more certificates to add to the listener"
+  type = "list"
+  default = []
+}
