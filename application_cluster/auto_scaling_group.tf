@@ -12,7 +12,7 @@ resource "aws_launch_configuration" "application_cluster_appserver_launch_config
   }
 
   root_block_device {
-    volume_type = "${var.root_block_device_volume_type)"
+    volume_type = "${var.root_block_device_volume_type}"
     volume_size = "${var.root_block_device_volume_size}"
     delete_on_termination = "${var.root_block_device_delete_on_termination}"
     encrypted = "${var.root_block_device_encrypted}"
