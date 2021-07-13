@@ -130,3 +130,23 @@ variable "healthcheck_matcher" {
   description = "see https://www.terraform.io/docs/providers/aws/r/lb_target_group.html#matcher"
   default = "200"
 }
+
+variable "root_block_device_volume_type" {
+  description = "see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/launch_configuration#block-devices"
+  default = "standard"
+}
+
+variable "root_block_device_volume_size" {
+  description = "see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/launch_configuration#block-devices"
+  default = "50"
+}
+
+variable "root_block_device_delete_on_termination" {
+  description = "see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/launch_configuration#block-devices"
+  default = "true"
+}
+
+variable "root_block_device_encrypted" {
+  description = "see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/launch_configuration#block-devices"
+  default = "true"
+}
